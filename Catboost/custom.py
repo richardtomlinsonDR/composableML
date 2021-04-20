@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from sklearn.preprocessing import LabelEncoder
-from catboost_pipeline import make_pipeline
+from catboost_pipeline import catboost_pipeline
 
 
 def fit(
@@ -17,8 +17,9 @@ def fit(
 ) -> None:
 
 
-    estimator = make_pipeline(X)
+    estimator = catboost_pipeline(X)
     estimator.fit(X, y)
+
 
     output_dir_path = Path(output_dir)
     if output_dir_path.exists() and output_dir_path.is_dir():

@@ -31,7 +31,7 @@ class CatBoostClassifier_wrapper():
         return pd.DataFrame(data=self.model.predict_proba(data), columns=self.model.classes_)
 
 
-def make_pipeline(X):
+def catboost_pipeline(X):
     catboost_preprocessing = ColumnTransformer(
         transformers=[
             ("num", "passthrough", DataSelector.NumSelector),
